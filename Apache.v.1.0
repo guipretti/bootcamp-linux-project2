@@ -1,0 +1,25 @@
+#!/bin/bash
+
+apt-get update
+
+echo "Verificando se existem updates de Sistema"
+
+apt-get upgrade -y
+
+echo "Fazendo upgrade do seu Servidor. Por favor, não desligue a máquina."
+
+
+echo "Instalando o Apache."
+
+apt-get install apache2 unzip -y
+
+echo "Baixando e copiando arquivos de aplicação."
+
+cd /tmp
+
+wget https://github.com/denilsonbonatti/linux-site-dio/archive/refs/heads/main.zip
+unzip main.zip
+
+cd linux-site-dio-main
+
+cp -R * /var/www/html/
